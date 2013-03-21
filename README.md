@@ -32,10 +32,7 @@ In de viewer Admin kunnen de volgende onderdelen worden geconfigureerd.
 Als Layer wordt gekozen voor WMTS.
 
 
- 
-
-[Example configuration](https://github.com/Geodan/geoviewer-config/blob/master/example-config.json)
-[Example configuration](example-config.json)
+[Example configuration](example-viewer-config.json)
 
 - viewer meta data definieren 
 
