@@ -24,6 +24,7 @@ TODO:
  - GIThub zetten
 
 
+[Example configuration](https://github.com/Geodan/geoviewer-config/blob/master/example-config.json)
 
 
 ## geoViewer Configuration Service ##
