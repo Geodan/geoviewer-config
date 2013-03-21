@@ -10,7 +10,6 @@ Bevat de draft die moet leiden tot de API definitie die voor de geoViewer cloud 
 - [Viewer configuratie definitie](viewer-config.md) 
 - [Viewer configuratie voorbeeld](example-viewer-config.json)
 - [Viewer configuratie REST API](viewer-api.md)
-
 - [Meta configuratie definitie](meta-config.md)
 - [Meta configuratie voobeeld](example-meta-config.json)
 - [Meta configuratie REST API](viewer-api.md)
