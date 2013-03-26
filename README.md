@@ -62,13 +62,13 @@ All PUT and DELETE request should be available in a POST and GET wrapper, to eas
 All restservice use the following envelop
 
 	var Response = schema({
-		apiVersion : ‚Äú1.0.12‚Äù,     // a.b.c if the json object changes increase
+		apiVersion : ì1.0.12î,     // a.b.c if the json object changes increase
 								// a) the name of a field or its location
 								// b) a parameter is added to the json 
 								// c) might be adjusted to indicate service version
 		status : ["success", "failure", "error"], // status of the response
-		?data : {‚Ä¶}, 				// the result of the response, obligated when state==succes
-		?error : {‚Ä¶}  			// error description, obligated when state!=failure 
+		?data : {Ö}, 				// the result of the response, obligated when state==succes
+		?error : {Ö}  			// error description, obligated when state!=failure 
 	});
 
 
