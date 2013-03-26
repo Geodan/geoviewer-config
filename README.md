@@ -29,20 +29,15 @@ In de viewer Admin kunnen de volgende onderdelen worden geconfigureerd.
 - extra layer
 - controls 
 
-Als Layer wordt gekozen voor WMTS.
+Als Layer kind wordt gekozen voor WMTS.
 
-
- 
-
-[Example configuration](https://github.com/Geodan/geoviewer-config/blob/master/example-config.json)
-[Example configuration](example-config.json)
 
 - viewer meta data definieren 
 
 There is not a strong division between visualisation and configuration. If you need another visualisation, simply define another configuration
 
 
-### xxx###
+### xxx ###
 
 De [google json style guide](http://google-styleguide.googlecode.com/svn/trunk/jsoncstyleguide.xml) wordt, waar toepasbaar, als richtlijn gebruikt. 
 
@@ -51,6 +46,31 @@ Voor de beschrijving van de json structuur wordt gebruik gemaakt van [js-schema]
 De documentatie wordt beschreven met behulp van markdown.
 
 De voertaal is engels :)
+
+
+### REST API ###
+
+#### REST services urls ####
+
+? kijk even naar google style guide 
+
+All PUT and DELETE request should be available in a POST and GET wrapper, to ease crossdomain access  
+
+
+##### Response Envelop ####
+
+All restservice use the following envelop
+
+	var Response = schema({
+		apiVersion : “1.0.12”,     // a.b.c if the json object changes increase
+								// a) the name of a field or its location
+								// b) a parameter is added to the json 
+								// c) might be adjusted to indicate service version
+		status : ["success", "failure", "error"], // status of the response
+		?data : {…}, 				// the result of the response, obligated when state==succes
+		?error : {…}  			// error description, obligated when state!=failure 
+	});
+
 
 
 ### Vragen/ TODO ###

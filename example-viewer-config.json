@@ -1,3 +1,93 @@
-{ 
-  blabla : asdfas
+{
+  "title": "Demo geoViewer",
+  "id": "demo-viewer-1",
+  "maps": [
+    {
+      "title": "Simpele kaart",
+      "id": "kaart-1",
+      "layers": [
+        {
+          "meta": {
+            "id": "layer-1", //the complete meta data including all possible options can be requested from the configuration service
+            "title": "Luchtfoto",
+            "summary": "Deze luchtfoto wordt geserveerd door Geoserver.nl. De data is afkomstig van ?? uit het jaar x",
+            "owner": "geodan"
+          },
+          "kind": "WMTS",
+          "params": {
+            "layers" : "luchtfoto2009",
+			version : "1.0.0",
+			type : "image/png"		
+          },
+          "options": {
+			visible : true,
+			weight : 100,
+			transparency : 0
+			}
+        },
+        {
+          "meta": {
+            "id": "layer-2", //the complete meta data including all possible options can be requested from the configuration service
+            "title": "Gemeente",
+            "summary": "Gmeenten geclassificeerd per inwoner aantal",
+            "owner": "geodan"
+          },
+          "kind": "WMTS",
+          "params": {
+            "layers" : "gemeenteXX",
+			version : "1.0.0",
+			type : "image/png"		
+          },
+          "options": {
+            visible : true,
+			weight : 5,
+			transparency : 0.2,
+			maxZoomlevel : 5,	
+			minZoomlevel : 2,
+			info : true
+          }
+        }
+      ],
+      "srs": "EPSG:28992",
+      "resolutions": [1092,364,
+		122,
+		40.5,
+		13.5,
+		4.5,
+		1.5,
+		0.5,
+		0.1666666667],
+      "maxExtent": {
+        "left": -454.992114373425,
+        "right": -2.3894519722708267,
+        "top": 4.416565342593506,
+        "bottom": -28364.019706537947
+      }
+	}
+  ],
+  "tools": [
+	{
+		meta : {
+			id : "tool-info"
+		},
+		id : "tool-info-implementatie-1",
+		activated : true,
+		asButton : true
+	},
+	{
+		meta : {
+			id : "tool-layermanager"
+		},
+		id : "tool-layermanager-implementatie-1",
+		activated : true,
+		visible : true,
+		options : [
+			{ 
+				meta : { id : "layermanager-option-title" },
+				key: "title",
+				value: "Demo lagen"
+			}					
+		]
+	}
+  ]
 }

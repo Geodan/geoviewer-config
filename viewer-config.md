@@ -14,21 +14,22 @@ An Option is a key value pair. An option contains meta information describing th
 
 
 	var Option = schema({						
-		'meta' : MetaOption, // TODO: or should this be the metaid instead of the obejct?
-		'?value' : *		// Optional when meta.defaultValue exists else obligated 
-	}); 
+		'meta' : MetaOption, // TODO: or should this be the metaid instead of the object?
+		'?value' : undefined		// Optional when meta.defaultValue exists else obligated 
+	});  
 
 The Layer object syntax
 	
+	// een laag in het configuratie scherm kan vele malen gekozen worden. doro verschillende gebruikers, bv de gemeentelaag en vervolgens voorzien worden van een eigen styling, hoe behouden we de link naar de originele laag definitie zodat deze aangepast kan worden, bv voor een aanpassing in de WMS service
 	var Layer = schema({                    	// Definition of the layer object
-	  'meta' : MetaData,						// meta data of the layer	
-	  'kind' : [ 'WMS', 'WMTS', 'Datalayer'], 	// Laagsoort zie laagtypen TODO: this is a double of the kind in MetaData?
-	  'id' : /[azAZ]*/,						   	// id van de laag, no spaces aloud	
-	  '?title' : String,                        // human readable name, overrides the meta.title value
-	  '?url' : String,						   	// optional (depending on kind) url to the service where this object can be retrieved
-	  'params' : {}						   	   	// parameters for example
+		'kind' : [ 'WMS', 'WMTS', 'Datalayer'], 	// Laagsoort zie laagtypen TODO: this is a double of the kind in MetaData?
+		'meta' : [MetaData, SimpleMetaData],		// meta data of the layer	
+		'id' : String.of('a-zA-Z0-9\-'),		// identifier
+		'?title' : String,                        // human readable name, overrides the meta.title value
+		'?url' : String,						   	// optional (depending on kind) url to the service where this object can be retrieved
+		'params' : {/[.]*/  : /[.]*/},		   	   	// parameters (key value pairs) for example
 												// when WMS: the url parameters
-	  'options' : Array.of(Option)				// options that are applicable for visualising the layer by the viewer
+		'options' : Array.of(Option)				// options that are applicable for visualising the layer by the viewer
 	});
 
 Following code describes a WMS object. Only part of the implemented Options are described. There will be no formal description of each layer kind. Instead the generated admin interface of each layer will function as the description of the layer options.
@@ -112,19 +113,19 @@ For readability options are described here as js-schema, actually options is an 
 	var Options - schema({						// wat leggen we hier wel of niet vast?
 		'visible' : Boolean,						// initial visibility
 		'weight' : Number.min(0).max(100),			// 0 is shown as bottom layer
-		'transparency: Number.min(0).max(1)      // initial transparancy of the layer
-	'maxZoomlevel' : Number,
-	'minZoomlevel' : Number
-	'info' : boolean		
+		'transparency: Number.min(0).max(1),      // initial transparancy of the layer
+		'maxZoomlevel' : Number,
+		'minZoomlevel' : Number,
+		'info' : boolean		
 	});
 
 
 
 ### Map ###
 	var GeoMap = schema({
-		'?title'	: String					// human readable title of the map
-		'?description' : String				// Short abstract describing the map
-		'id' : String.of([a-zA-Z0-9]),		// identifier of map
+		'?title'	: String,					// human readable title of the map
+		'?description' : String,				// Short abstract describing the map
+		'id' : String.of('a-zA-Z0-9\-'),		// identifier
 		'layers' : Array.of(1,500,Layer),	// 
 		'?initialScale' : Number,			// initial scale of the map (initialViewport will take precedence)
 		'?initialCenter' : { 				// initial center of the map (initialViewport will take precedence)
@@ -138,15 +139,8 @@ For readability options are described here as js-schema, actually options is an 
 			'bottom' : Number
 		 }, 
 		'srs' : /EPSG:[0-9]*/,						// The projection of the map 
-		'resolutions' : [1092,			// ? Of moet dit bepaald worden door de lagen?
-				364,
-				122,
-				40.5,
-				13.5,
-				4.5,
-				1.5,
-				0.5,
-				0.1666666667],
+		'resolutions' : Array.of(float),			// ? Of moet dit bepaald worden door de lagen?
+				
 		'?maxExtent' : {				// maximum extent that the viewer will shows
 					'left' : Number,
 					'right' : Number,
@@ -154,7 +148,6 @@ For readability options are described here as js-schema, actually options is an 
 					'bottom' : Number
 				},
 		'?proxy': "proxy.jsp?"		  // relative path to a proxy script 	
-		
 	});
 
 
@@ -162,28 +155,27 @@ For readability options are described here as js-schema, actually options is an 
 
 
 	var Viewer = schema({
-		'kind' : ['ol','mapsui','integrated'], 	//
-		'?title'	: String,						// human readable title of the map
-		'?description' : String,				// Short abstract describing the map
-		'id' : String.of('a-zA-Z0-9'),			// identifier of map
-		'maps' : Array.of(1,100,geoMap),		// ? Of moeten dit referenties naar Maps zijn?
-		'tools' : Array.of(Tool),		// Not every kind of viewer, supports all tool (or all options)
+		'meta' : MetaData,				
+		'id' : String.of('a-zA-Z0-9\-'),		// identifier
+		'maps' : Array.of(1,100,GeoMap),		// ? Of moeten dit referenties naar Maps zijn?
+		'tools' : Array.of(Tool)		// Not every kind of viewer, supports all tool (or all options)
 									// viewer will ignore when unkown
-		
+	
 	});
 
 ### Tool ###
 	var Tool = schema({
 		'meta' : MetaData,
-		'id' : String.of('a-zA-Z0-9'),		// identifier
-		
-		'?activated' : Boolean,
-		'?visible' : Boolean,
-		'?inMenu' : Boolean,
-		'?asButton' : Boolean,
+		'id' : String.of('a-zA-Z0-9\-'),		// identifier
+	
+		'?activated' : Boolean,				// The tool is active, for example info will be returned
+											// by info tool after click on map
+		'?visible' : Boolean,				// The tool is visible, for example window showing returned
+											// information of info tool is shown on screen at startup
+		'?inMenu' : Boolean,				// The tool can be activated/deactivated in a menu
+		'?asButton' : Boolean,				// The tool can be activated/deactivated using a button
 		'options' : Array.of(Option)		// options that are specific for the tool of kind, 
 											/// not all viewers will support all options
- 
 	});
 
 

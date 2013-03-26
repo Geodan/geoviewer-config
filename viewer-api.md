@@ -3,26 +3,6 @@
 De geoViewer configuratie service voorziet in het opslaan en verkrijgen van configuraties. Deze configuraties worden gebruikt voor het samenstellen en weergeven van kaarten en viewers. Een configuratie is eigendom van een persoon en kan door die persoon gedeeld worden met zichzelf, zijn bedrijf of de wereld. 
 
 
-### REST services urls ###
-
-? kijk even naar google style guide 
-
-All PUT and DELETE request should be available in a POST and GET wrapper, to ease crossdomain access  
-
-
-#### Response Envelop ###
-
-All restservice use the following envelop
-
-	var Response = schema({
-		apiVersion : “1.0.12”,     // a.b.c if the json object changes increase
-								// a) the name of a field or its location
-								// b) a parameter is added to the json 
-								// c) might be adjusted to indicate service version
-		status : ["success", "failure", "error"], // status of the response
-		?data : {…}, 				// the result of the response, obligated when state==succes
-		?error : {…}  			// error description, obligated when state!=failure 
-	});
 
 ### Viewer Service
 

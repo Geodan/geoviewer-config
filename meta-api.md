@@ -1,6 +1,6 @@
 ### Admin service
 
-For administrating viewers, some request at a meta level are needed. (*In the first implementation everything will be available for eveyone, except for the layers?*)
+For administrating viewers, some request at a meta level are needed. (*In the first implementation everything will be available for everyone, except for the layers?*) In the future implementing searching and paging might be necessary (see google style guide)
 
 Return the metadata of the tools that are available for this customer. 
 
@@ -8,15 +8,24 @@ Return the metadata of the tools that are available for this customer.
 - GET service/viewer/{klantnaam}/kinds
 - GET service/layer/{klantnaam}/kinds
 
-In version 0.5 alle metadata will be similar:
 
-	var Opt = some kind of meta data describing a field in a form including tooltip etc. 
+In version 0.5 all return data will be similar:
 
-	var Metadata = schema({
-		viewers : Array.of(1,500,{
-			'id' : String.of('a-zA-Z0-9'),			
-			'name'	: String,				// human readable name
-			'description' : String,			// Short abstract describing the thing
-			'options' : Array.of(Opt)    // use a standard mechanisme to describe a form
+
+	schema({
+		data : Array.of(1,500, Metadata)  	// Where the 'kind' field of the metadata
+		 									// corresponds to the requested objects
+											// for example Layer 
 	});
+
+
+
+
+### Viewer
+A viewer itself also contains some metadata, ie the tools that are available in the viewer. This information is can be requested from the viewer url. 
+
+- GET [viewerurl]/config/viewer.json 
+
+
+
 
