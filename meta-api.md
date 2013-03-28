@@ -1,3 +1,5 @@
+**status**: *draft*
+
 ### Admin service
 
 For administrating viewers, some request at a meta level are needed. (*In the first implementation everything will be available for everyone, except for the layers?*) In the future implementing searching and paging might be necessary (see google style guide)

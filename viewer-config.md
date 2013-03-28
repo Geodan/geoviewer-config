@@ -1,3 +1,6 @@
+**status**: *draft*
+
+
 ###  Objecten 
 
 Er zijn een aantal configuratie objecten, al deze objecten gecombineerd vormen het geoViewer object:
@@ -10,7 +13,7 @@ Er zijn een aantal configuratie objecten, al deze objecten gecombineerd vormen h
 
 The layer object describes both the “data” that needs to be represented as the way the layer should be represented in a viewer. The openlayers configuration is used where applicable (and generic enough).
 
-An Option is a key value pair. An option contains meta information describing the valid values, and the goal  of the option.
+An Option is a key value pair. An option contains meta information describing the valid values, and the goal of the option.
 
 
 	var Option = schema({						

@@ -1,0 +1,32 @@
+{
+  "version": "0.5", 
+  "apiVersion" : "1.0",
+  "meta": {
+    "kind": "Viewer",
+    "id": "viewer-ol-integrated",
+    "title": "Geintegreerde Viewer",
+    "summary": "Een viewer geschikt voor schematische weergave van (statistische) analyzes. Geintegreerd in een bestaande webpagina.",
+	thumbnail : "http://geoviewer.nl/mv/config/thumbnail.png",
+	description: "Het doel van deze viewer is om geintegreerd in een bestaande webpagina of cms systeem. Meerdere kaarten aan te bieden. De focus is op het weergeven van bv statistiek informatie. De gebruiker krijgt deze informatie zo schematisch mogelijk aangeboden en kan buiten het bekijken van de informatie geen kaart interactie mogelijkheden. De viewer getoggeled worden naar een fullscreen modus.",
+    "options": [
+      {
+        "meta":
+		{
+			"kind": "Option",
+			"id": "option-viewer-ol-integrated-fullscreen",
+			"title": "Fullscreen",
+			"summary": "Toon de viewer fullscreen bij start.",
+		},
+        "kind": "Boolean",
+        "defaultValue": "false"
+      }
+    ]
+  },
+  "tools": [
+    "tool-navigation",
+    "tool-legend"
+  ],
+  "rights": {
+    "usage": "public" 
+  }
+}

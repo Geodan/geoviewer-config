@@ -1,3 +1,5 @@
+**status**: *draft*
+
 ### Metadata ###
 
 Each configuration object also has a related metadata object. The metadataobject allows the construction of GUI elements for advertising en configuring the object it is refering to.  

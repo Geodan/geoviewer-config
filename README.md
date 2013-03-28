@@ -1,3 +1,6 @@
+**status**: *draft*
+
+
 geoviewer-config
 ================
 
@@ -9,11 +12,13 @@ Bevat de draft die moet leiden tot de API definitie die voor de geoViewer cloud 
 
 - [Viewer configuratie definitie](viewer-config.md) 
 - [Viewer configuratie voorbeeld](example-viewer-config.json)
-- [Viewer configuratie REST API](viewer-api.md)
+- [Viewer service REST API](viewer-api.md)
+- [Viewer implementation](viewer-guidelines.md) - What to implement to create a new viewer
 
 - [Meta configuratie definitie](meta-config.md)
 - [Meta configuratie voobeeld](example-meta-config.json)
-- [Meta configuratie REST API](viewer-api.md)
+- [Configuratie service REST API](meta-api.md)
+
 
 
 
@@ -77,29 +82,6 @@ All restservice use the following envelop
 
 - is 1 versie op api level voldoende, of moet elk object zijn eigen versie nummer hebben
 - Hoe gaan we om met meertaligheid? Moet hier al rekening mee gehouden worden...
-
-
-### Recomendations for client implementations
-
-*nog nader uit te werken*
-
-A general guideline for implementation is described here
-
-- to make it easier for developers to switch between development in different clients
-- easier maintenance
-- allow reuse in "maakwerk" applications that connect to the cloud
-
-Objects with the following name and working should be defined:
-
-- gvConfigViewer
-	- parameters: viewername
-	- returns: an object representing the viewer configuration  
-	- uses: gvConfigMap, gvConfigTool
-- gvConfigMap
-- *gvCongfigTool*, can/should be provided by the cloud service??
-
-Crossdomain communication should be supported where possible. 
-
 
 
 
