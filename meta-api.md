@@ -6,18 +6,32 @@ For administrating viewers, some request at a meta level are needed. (*In the fi
 
 Return the metadata of the tools that are available for this customer. 
 
+
+Types of object available:
+
 - GET service/tool/{klantnaam}/kinds
 - GET service/viewer/{klantnaam}/kinds
 - GET service/layer/{klantnaam}/kinds
+ 
+Predefined Objects available:
+
+- GET service/viewer/{klantnaam}/library
+- GET service/layer/{klantnaam}/library
+
+List of self defined objects:
+
+- GET service/viewer/{klantnaam}/list
+- GET service/layer/{klantnaam}/list
+
 
 
 In version 0.5 all return data will be similar:
 
 
 	schema({
-		data : Array.of(1,500, Metadata)  	// Where the 'kind' field of the metadata
-		 									// corresponds to the requested objects
-											// for example Layer 
+		data : Array.of(Metadata)  	// Where the 'kind' field of the metadata
+							// corresponds to the requested objects
+							// for example Layer 
 	});
 
 
