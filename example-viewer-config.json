@@ -71,8 +71,7 @@
 			id : "tool-info"
 		},
 		id : "tool-info-implementatie-1",
-		activated : true,
-		asButton : true
+		activated : true
 	},
 	{
 		meta : {
@@ -80,14 +79,10 @@
 		},
 		id : "tool-layermanager-implementatie-1",
 		activated : true,
-		visible : true,
-		options : [
-			{ 
-				meta : { id : "layermanager-option-title" },
-				key: "title",
-				value: "Demo lagen"
-			}					
-		]
+		options : 
+		{ 
+			title: "Demo lagen"
+		}					
 	}
   ]
 }
