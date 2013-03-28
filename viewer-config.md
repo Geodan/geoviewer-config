@@ -29,10 +29,10 @@ The Layer object syntax
 		'meta' : [MetaData, SimpleMetaData],		// meta data of the layer	
 		'id' : String.of('a-zA-Z0-9\-'),		// identifier
 		'?title' : String,                        // human readable name, overrides the meta.title value
-		'?url' : String,						   	// optional (depending on kind) url to the service where this object can be retrieved
-		'params' : {/[.]*/  : /[.]*/},		   	   	// parameters (key value pairs) for example
+		'url' : String,			   	// url to the service where this object can be retrieved
+		'params' : {/[.]*/  : /[.]*/},		 // parameters (key value pairs) for example
 												// when WMS: the url parameters
-		'options' : Array.of(Option)				// options that are applicable for visualising the layer by the viewer
+		'options' : {/[.]*/  : /[.]*/}		// options that are applicable for visualising the layer by the viewer
 	});
 
 Following code describes a WMS object. Only part of the implemented Options are described. There will be no formal description of each layer kind. Instead the generated admin interface of each layer will function as the description of the layer options.
