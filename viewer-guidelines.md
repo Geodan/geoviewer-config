@@ -59,5 +59,5 @@ The viewer configuration should be requested by the viewer using the viewerid se
 
 Example:
 
-	http://geoviewer.nl/mv/viewer/?viewerid
+	http://geoviewer.nl/mv/viewer/?viewerid=64567456y5474
 
