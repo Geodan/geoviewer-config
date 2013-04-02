@@ -1,41 +1,31 @@
 **status**: *draft*
 
+A viewer configuration exists of three main elements
 
-###  Objecten 
+- Layers
+- Maps
+- Options
 
-Er zijn een aantal configuratie objecten, al deze objecten gecombineerd vormen het geoViewer object:
-
-- Layer
-- Map
-- geoViewer
+Together they determine *what* the viewer, that opens the configurations, shows and *how* it is shown, what tools are available.
 
 ### Layer ###
 
-The layer object describes both the “data” that needs to be represented as the way the layer should be represented in a viewer. The openlayers configuration is used where applicable (and generic enough).
-
-An Option is a key value pair. An option contains meta information describing the valid values, and the goal of the option.
-
-
-	var Option = schema({						
-		'meta' : MetaOption, // TODO: or should this be the metaid instead of the object?
-		'?value' : undefined		// Optional when meta.defaultValue exists else obligated 
-	});  
+The layer object describes both the “data” that needs to be represented and the way this data should be represented in a viewer. (The openlayers configuration paramters is used where applicable (and generic enough).)
 
 The Layer object syntax
 	
-	// een laag in het configuratie scherm kan vele malen gekozen worden. doro verschillende gebruikers, bv de gemeentelaag en vervolgens voorzien worden van een eigen styling, hoe behouden we de link naar de originele laag definitie zodat deze aangepast kan worden, bv voor een aanpassing in de WMS service
 	var Layer = schema({                    	// Definition of the layer object
-		'kind' : [ 'WMS', 'WMTS', 'Datalayer'], 	// Laagsoort zie laagtypen TODO: this is a double of the kind in MetaData?
+		'kind' : [ 'WMS', 'WMTS', 'Datalayer'], 	// Laagsoort zie laagtypen TODO: is this a double of the kind in MetaData?
 		'meta' : [MetaData, SimpleMetaData],		// meta data of the layer	
 		'id' : String.of('a-zA-Z0-9\-'),		// identifier
 		'?title' : String,                        // human readable name, overrides the meta.title value
-		'url' : String,			   	// url to the service where this object can be retrieved
-		'params' : {/[.]*/  : /[.]*/},		 // parameters (key value pairs) for example
+		'?url' : String,						   	// optional (depending on kind) url to the service where this object can be retrieved
+		'params' : {/[.]*/  : /[.]*/},		   	   	// parameters (key value pairs) for example
 												// when WMS: the url parameters
-		'options' : {/[.]*/  : /[.]*/}		// options that are applicable for visualising the layer by the viewer
+		'options' : Array.of(Option)				// options that are applicable for visualising the layer by the viewer
 	});
 
-Following code describes a WMS object. Only part of the implemented Options are described. There will be no formal description of each layer kind. Instead the generated admin interface of each layer will function as the description of the layer options.
+Following code describes a WMS object. Only part of the implemented Options are described. There will be no formal description of each layer kind. Instead the [configuration service](meta-config.api) (and the generated admin interface) will provide the description of the layer options.
 
 
      // example of a wms layer object
@@ -114,9 +104,9 @@ Following code describes a WMS object. Only part of the implemented Options are 
 For readability options are described here as js-schema, actually options is an ordered collection of Option 
 	
 	var Options - schema({						// wat leggen we hier wel of niet vast?
-		'visible' : Boolean,						// initial visibility
-		'weight' : Number.min(0).max(100),			// 0 is shown as bottom layer
-		'transparency: Number.min(0).max(1),      // initial transparancy of the layer
+		'visible' : Boolean,					// initial visibility
+		'weight' : Number.min(0).max(100),		// 0 is shown as bottom layer
+		'transparency: Number.min(0).max(1),    // initial transparancy of the layer
 		'maxZoomlevel' : Number,
 		'minZoomlevel' : Number,
 		'info' : boolean		

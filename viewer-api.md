@@ -19,8 +19,7 @@ De geoViewer configuratie service voorziet in het opslaan en verkrijgen van conf
 
 	var ViewerList= schema({
 		viewers : Array.of(1,500,{
-			'id' : String.of('a-zA-Z0-9'),			
-			'kind' : ['ol','mapsui','integrated'], //
+			'id' : String.of('a-zA-Z0-9'),
 			'?title'	: String,					// human readable title of the map
 			'?description' : String,				// Short abstract describing the map
 	});

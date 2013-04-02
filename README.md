@@ -76,12 +76,31 @@ All restservice use the following envelop
 		?error : {…}  			// error description, obligated when state!=failure 
 	});
 
+#### Generic JSON objects
 
+Some JSON objects are shared between different objects and are described here:
+
+##### Option
+
+An Option decribes a key value pair. An option contains meta information describing the valid values, and the goal of the option.
+
+	var Option = schema({						
+		'meta' : MetaOption, // TODO: or should this be the metaid instead of the object?
+		'?value' : undefined		// Optional when meta.defaultValue exists else obligated 
+	});  
+	
+For simplicity an Option is represented as a key-value pair in the viewer service ie:
+
+	options: { 
+		key1: value, 
+		key2: value2 
+	}
+
+	
 
 ### Vragen/ TODO ###
 
 - is 1 versie op api level voldoende, of moet elk object zijn eigen versie nummer hebben
-- Hoe gaan we om met meertaligheid? Moet hier al rekening mee gehouden worden...
 
 
 
