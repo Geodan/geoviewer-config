@@ -101,5 +101,6 @@ For simplicity an Option is represented as a key-value pair in the viewer servic
 ### Vragen/ TODO ###
 
 - is 1 versie op api level voldoende, of moet elk object zijn eigen versie nummer hebben
+
 - hoe om te gaan met projectie van kaart en lagen; liefst geeft server bij een kaart met gekozen projectie (zeg RD) en extent/middelpunt/schaal alleen de geschikte lagen terug
-- 
+
