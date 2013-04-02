@@ -67,13 +67,13 @@ All PUT and DELETE request should be available in a POST and GET wrapper, to eas
 All restservice use the following envelop
 
 	var Response = schema({
-		apiVersion : “1.0.12”,     // a.b.c if the json object changes increase
+		apiVersion : ï¿½1.0.12ï¿½,     // a.b.c if the json object changes increase
 								// a) the name of a field or its location
 								// b) a parameter is added to the json 
 								// c) might be adjusted to indicate service version
 		status : ["success", "failure", "error"], // status of the response
-		?data : {…}, 				// the result of the response, obligated when state==succes
-		?error : {…}  			// error description, obligated when state!=failure 
+		?data : {ï¿½}, 				// the result of the response, obligated when state==succes
+		?error : {ï¿½}  			// error description, obligated when state!=failure 
 	});
 
 #### Generic JSON objects
@@ -102,6 +102,8 @@ For simplicity an Option is represented as a key-value pair in the viewer servic
 
 - is 1 versie op api level voldoende, of moet elk object zijn eigen versie nummer hebben
 
+- hoe om te gaan met projectie van kaart en lagen; liefst geeft server bij een kaart met gekozen projectie (zeg RD) alleen de geschikte lagen terug
+- 
 
 
 
