@@ -1,0 +1,70 @@
+    // example of a toolinfo list
+	[
+		{
+			kind : "Toolinfo",
+			id : "tool-i-tool",
+			title : "Info tool",
+			summary : "Geef de gebruiker de mogelijkheid om informatie van de kaart op te vragen.",
+			description : "Door een middel van een klik op de kaart kan de gebruiker informatie opvragen en tonen over hetgeen zich bevind op het punt van de klik in de individuele kaartlagen. ",
+			thumbnail : "http://linggis.geodan.nl/thumbnail/tools/info.png",
+			options : [
+				{
+					meta : {
+						meta : {
+							kind : "Option",
+							id : "option-i-tool-toplayeronly",
+							key : "toplayeronly",
+							title : "Alleen bovenste laag",
+							summary : "Geef alleen info van de bovenste laag welke de markering info heeft",
+							description : "Wanneer dit aangevinkt is zal de client alleen informatie teruggeven van de bovenste laag welke info beschikbaar heeft. Indien dit niet is aangevinkt zal de viewer proberen om van elke zichtbare laag informatie op te vragen en te tonen",
+							thumbnail : "http://linggis.geodan.nl/thumbnail/options/toplayer.png"
+						},
+						kind : "boolean",
+						defaultValue' : true
+					}
+				}
+			]
+		},
+		
+		
+		{
+			kind : "Toolkind",
+			id : "tool-navigation",
+			title : "Basis navigatie",
+			summary : "De kaart kan geschoven en gezooms worden.",
+			description : "Deze tool maakt het voor de gebruiker mogelijk om de kaart te bewegen en in en uit te zoomen op de kaart. ",
+			thumbnail : "http://linggis.geodan.nl/thumbnail/tools/navigation.png",
+			options : [
+				{
+					meta : {
+						meta : {
+							kind : "Option",
+							id : "option-pan-visible",
+							key: "pan-visible",
+							title : "Toon schuiven",
+							summary : "Toon schuif button in het scherm",
+							description : "Geef de gebruiker, naast de standaard schuif mogelijkheid, ook visueel zichtbare mogelijkheden om de kaart te schuiven bv door middel van knoppen.",
+							thumbnail : "http://linggis.geodan.nl/thumbnail/options/transparency.png"
+						},
+						kind : "boolean",
+						defaultValue' : true
+					}
+				},
+				{
+					meta : {
+						meta : {
+							kind : "Option",
+							id : "option-zoom-visible",
+							key: "zoom-visible",
+							title : "Toon zoomen",
+							summary : "Toon zoom buttons in het scherm",
+							description : "Geef de gebruiker, naast de standaard inzooom mogelijkheid, ook visueel zichtbare mogelijkheden om op de kaart ion te zoomen bv door middel van knoppen.",
+							thumbnail : "http://linggis.geodan.nl/thumbnail/options/transparency.png"
+						},
+						kind : "boolean",
+						defaultValue' : true
+					}
+				}
+			]
+		}
+	]
