@@ -8,71 +8,55 @@
       "layers": [
         {
           "meta": {
-            "id": "layer-1", //the complete meta data including all possible options can be requested from the configuration service
+            "id": "layer-1",
             "title": "Luchtfoto",
-            "summary": "Deze luchtfoto wordt geserveerd door Geoserver.nl. De data is afkomstig van ?? uit het jaar x",
-            "owner": "geodan"
+            "summary": "Deze luchtfoto wordt geserveerd door Geoserver.nl. De data is afkomstig van PDOK uit het jaar 2009",
+            "owner": "PDOK"
           },
           "kind": "WMTS",
           "params": {
-            "layers" : "luchtfoto2009",
-			version : "1.0.0",
-			type : "image/png"		
+            "layers" : "luchtfoto",
+            version : "1.0.0",
+            type : "image/jpeg",
+            tileschema: "nltilingschema",
+            url: "http://geodata1.nationaalgeoregister.nl/luchtfoto/wmts/luchtfoto/wmts/"
           },
           "options": {
-			visible : true,
-			weight : 100,
-			transparency : 0
-			}
+            visible : true,
+            transparency : 0,
+            wieght: '0'
         },
         {
           "meta": {
             "id": "layer-2", //the complete meta data including all possible options can be requested from the configuration service
-            "title": "Gemeente",
-            "summary": "Gmeenten geclassificeerd per inwoner aantal",
-            "owner": "geodan"
+            "title": "OpenStreetMap",
+            "summary": "OpenStreetMap kaart in Nederlandse projectie"
           },
-          "kind": "WMTS",
+          "kind": "TMS",
           "params": {
-            "layers" : "gemeenteXX",
-			version : "1.0.0",
-			type : "image/png"		
+            "layers" : "osmnlrd",
+            version : "1.0.0",
+            type : "image/png",
+            url: "http://tiles.geodan.nl/mapproxy/mapproxy/tms/"
           },
           "options": {
             visible : true,
-			weight : 5,
-			transparency : 0.2,
-			maxZoomlevel : 5,	
-			minZoomlevel : 2,
-			info : true
+            weight : 1,
+            transparency : 0.2
           }
         }
       ],
       "srs": "EPSG:28992",
-      "resolutions": [1092,364,
-		122,
-		40.5,
-		13.5,
-		4.5,
-		1.5,
-		0.5,
-		0.1666666667],
+      "resolutions": [3440.640,1720.320,860.160,430.080,215.040,107.520,53.760,26.880,13.440,6.720,3.360,1.680],
       "maxExtent": {
-        "left": -454.992114373425,
-        "right": -2.3894519722708267,
-        "top": 4.416565342593506,
-        "bottom": -28364.019706537947
+        "left":-285401.920,
+        "right": 595401.920,
+        "top": 903401.920,
+        "bottom": 22598.080
       }
 	}
   ],
   "tools": [
-	{
-		meta : {
-			id : "tool-info"
-		},
-		id : "tool-info-implementatie-1",
-		activated : true
-	},
 	{
 		meta : {
 			id : "tool-layermanager"
