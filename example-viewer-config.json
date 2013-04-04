@@ -16,33 +16,34 @@
           "kind": "WMTS",
           "params": {
             "layers" : "luchtfoto",
-            version : "1.0.0",
-            type : "image/jpeg",
-            tileschema: "nltilingschema",
-            url: "http://geodata1.nationaalgeoregister.nl/luchtfoto/wmts/luchtfoto/wmts/"
+            "version" : "1.0.0",
+            "type" : "image/jpeg",
+            "tileschema": "nltilingschema",
+            "url": "http://geodata1.nationaalgeoregister.nl/luchtfoto/wmts/luchtfoto/wmts/"
           },
           "options": {
-            visible : true,
-            transparency : 0,
-            wieght: '0'
+            "visible" : true,
+            "transparency" : 0,
+            "weight": "0"
+          }
         },
         {
           "meta": {
-            "id": "layer-2", //the complete meta data including all possible options can be requested from the configuration service
+            "id": "layer-2",
             "title": "OpenStreetMap",
             "summary": "OpenStreetMap kaart in Nederlandse projectie"
           },
           "kind": "TMS",
           "params": {
             "layers" : "osmnlrd",
-            version : "1.0.0",
-            type : "image/png",
-            url: "http://tiles.geodan.nl/mapproxy/mapproxy/tms/"
+            "version" : "1.0.0",
+            "type" : "image/png",
+            "url": "http://tiles.geodan.nl/mapproxy/mapproxy/tms/"
           },
           "options": {
-            visible : true,
-            weight : 1,
-            transparency : 0.2
+            "visible" : true,
+            "weight" : 1,
+            "transparency" : 0.2
           }
         }
       ],
@@ -58,14 +59,14 @@
   ],
   "tools": [
 	{
-		meta : {
-			id : "tool-layermanager"
+		"meta" : {
+			"id" : "tool-layermanager"
 		},
-		id : "tool-layermanager-implementatie-1",
-		activated : true,
-		options : 
+		"id" : "tool-layermanager-implementatie-1",
+		"activated" : true,
+		"options" : 
 		{ 
-			title: "Demo lagen"
+			"title": "Demo lagen"
 		}					
 	}
   ]
