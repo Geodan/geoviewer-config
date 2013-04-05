@@ -35,7 +35,7 @@
           },
           "kind": "TMS",
           "params": {
-            "layers" : "osmnlrd",
+            "layers" : "osmnlrd_EPSG28992",
             "version" : "1.0.0",
             "type" : "image/png",
             "url": "http://tiles.geodan.nl/mapproxy/mapproxy/tms/"
