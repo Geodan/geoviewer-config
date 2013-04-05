@@ -19,7 +19,7 @@
             "version" : "1.0.0",
             "type" : "image/jpeg",
             "tileschema": "nltilingschema",
-            "url": "http://geodata1.nationaalgeoregister.nl/luchtfoto/wmts/luchtfoto/wmts/"
+            "url": "http://geodata1.nationaalgeoregister.nl/luchtfoto/wms"
           },
           "options": {
             "visible" : true,
